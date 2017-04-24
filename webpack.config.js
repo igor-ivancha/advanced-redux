@@ -8,20 +8,16 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [{
+    loaders: [{
       exclude: /node_modules/,
-      use: [
-        {
-          loader: 'babel-loader',
-          query: {
-            presets: [['es2015', {modules: false}], 'react', 'stage-1']
-          }
-        }
-      ]
+      loader: 'babel',
+      query: {
+        presets: ['react', 'es2015', 'stage-1']
+      }
     }]
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['', '.js', '.jsx']
   },
   devServer: {
     historyApiFallback: true,
